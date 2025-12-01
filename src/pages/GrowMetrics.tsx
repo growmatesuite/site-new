@@ -13,7 +13,6 @@ import {
   BarChart3, 
   Brain, 
   Zap, 
-  Star,
   ArrowRight,
   CheckCircle,
   Clock,
@@ -140,32 +139,6 @@ const steps = [
   }
 ];
 
-const testimonials = [
-  {
-    name: 'Carlos Mendes',
-    role: 'Gerente de CX',
-    company: 'Varejo Nacional',
-    content: 'Com o GrowMetrics, nosso NPS aumentou 23 pontos em 6 meses. As insights da IA são incríveis!',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face',
-    rating: 5
-  },
-  {
-    name: 'Fernanda Lima',
-    role: 'Diretora de Operações',
-    company: 'Franquias Brasil',
-    content: 'Conseguimos identificar exatamente quais unidades precisavam de atenção. Resultado: 40% de redução em churn.',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b5bc?w=150&h=150&fit=crop&crop=face',
-    rating: 5
-  },
-  {
-    name: 'Roberto Silva',
-    role: 'CEO',
-    company: 'Tech Startup',
-    content: 'A análise de sentimentos nos mostrou oportunidades que não víamos antes. Game changer!',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face',
-    rating: 5
-  }
-];
 
 const faqs = [
   {
@@ -706,62 +679,7 @@ export default function GrowMetrics() {
           </Container>
         </section>
 
-        {/* Testimonials */}
-        <section className="py-20">
-          <Container size="lg">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-16"
-            >
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-                Resultados que{' '}
-                <span className="text-purple-400">
-                  falam por si
-                </span>
-              </h2>
-              
-              <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                Empresas que transformaram sua experiência do cliente com o GrowMetrics
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                >
-                  <Card glowColor="purple" className="h-full p-6">
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
-                    
-                    <p className="text-gray-300 mb-6 italic">"{testimonial.content}"</p>
-                    
-                    <div className="flex items-center gap-4">
-                      <img 
-                        src={testimonial.avatar} 
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div>
-                        <div className="font-semibold">{testimonial.name}</div>
-                        <div className="text-sm text-gray-400">{testimonial.role}</div>
-                        <div className="text-sm text-gray-500">{testimonial.company}</div>
-                      </div>
-                    </div>
-                  </Card>
-                </motion.div>
-              ))}
-            </div>
-          </Container>
-        </section>
+        
 
         {/* FAQ Section */}
         <section className="py-20 bg-black-secondary/30">
