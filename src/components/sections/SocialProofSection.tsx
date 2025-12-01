@@ -168,11 +168,7 @@ export const SocialProofSection: React.FC = () => {
                   </div>
                   
                   <div className="flex items-center">
-                    {testimonial.photo ? (
-                      <img src={testimonial.photo} alt={testimonial.name} className="h-10 w-10 rounded-full object-cover mr-3 grayscale" />
-                    ) : (
-                      <div className="text-2xl mr-3">{testimonial.avatar}</div>
-                    )}
+                    <img src={testimonial.photo} alt={testimonial.name} className="h-10 w-10 rounded-full object-cover mr-3 grayscale" />
                     <div>
                       <div className="font-semibold text-white">
                         {testimonial.name}
