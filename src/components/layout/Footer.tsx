@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { Instagram, Youtube, Linkedin } from 'lucide-react';
 import { Container } from '../ui/Container';
-import { cn } from '../../lib/utils';
 
 export const Footer: React.FC = () => {
-  const [reduceMotion, setReduceMotion] = useState(false);
+  
 
   const navigationSections = [
     {
@@ -33,6 +31,7 @@ export const Footer: React.FC = () => {
       links: [
         { name: 'Sobre', href: '#about' },
         { name: 'Carreiras', href: '/trabalhe-conosco' },
+        { name: 'Blog', href: '/blog' },
       ],
     },
   ];
@@ -64,18 +63,6 @@ export const Footer: React.FC = () => {
               Especialistas em orquestração e automação inteligente.
             </p>
             
-            {/* Accessibility Toggle */}
-            <div className="mb-6">
-              <button
-                onClick={() => setReduceMotion(!reduceMotion)}
-                className="flex items-center text-sm text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="Toggle reduced motion"
-              >
-                <div className={`w-4 h-4 rounded-full mr-2 ${reduceMotion ? 'bg-green-primary' : 'bg-gray-600'}`}></div>
-                Reduzir animações
-              </button>
-            </div>
-
             {/* Contact Info */}
             <div className="space-y-2 text-sm text-gray-400">
               <div className="flex items-center">
