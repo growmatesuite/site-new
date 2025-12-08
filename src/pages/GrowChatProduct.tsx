@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import ExploreSuite from '@/components/sections/ExploreSuite';
@@ -154,9 +155,9 @@ export default function GrowChatProduct() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mb-8">
-                <Button variant="whatsapp" size="lg" className="text-black-base bg-[#4FCE5D] hover:bg-[#128C7E]">
-                  Falar com Especialista
-                </Button>
+                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="whatsapp" size="lg" className="text-black-base bg-[#4FCE5D] hover:bg-[#128C7E]">Falar com Especialista</Button>
+                </a>
               </div>
               
               <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">

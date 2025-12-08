@@ -18,6 +18,8 @@ export const COMPANY_INFO = {
   cnpj: '00.000.000/0001-00',
 };
 
+export const WHATSAPP_CONTACT_URL = 'https://wa.me/551148635675';
+
 // Navigation Links
 export const NAVIGATION_LINKS = [
   { name: 'Soluções', href: '#solutions' },

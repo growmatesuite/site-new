@@ -2,9 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { Link } from 'react-router-dom';
 import { Container } from '../ui/Container';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { WHATSAPP_CONTACT_URL } from '../../lib/constants';
 
 const partners = [
   {
@@ -127,9 +127,9 @@ export const PartnersSection: React.FC = () => {
                 <div className="border-t border-gray-800 my-6" />
 
                 <div className="flex">
-                  <Link to="/integracoes">
+                  <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
                     <Button variant="primary" size="sm">Falar com Especialista</Button>
-                  </Link>
+                  </a>
                 </div>
               </Card>
             </motion.div>

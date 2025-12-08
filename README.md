@@ -1,63 +1,132 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Growmate Blog
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Blog corporativo da Growmate para publicação de conteúdo sobre agentes de IA e transformação digital.
 
-Currently, two official plugins are available:
+## 🚀 Tecnologias
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend**: React 18 + TypeScript + Vite
+- **Estilização**: Tailwind CSS
+- **Backend**: Supabase (Database + Auth + Storage)
+- **Ícones**: Lucide React
+- **Roteamento**: React Router DOM
 
-## Expanding the ESLint configuration
+## 📋 Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+
+- Conta no Supabase
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🔧 Configuração
+
+### 1. Clone o repositório
+
+```bash
+git clone <url-do-repositorio>
+cd site_growmate
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Instale as dependências
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  extends: [
-    // other configs...
-    // Enable lint rules for React
-    reactX.configs['recommended-typescript'],
-    // Enable lint rules for React DOM
-    reactDom.configs.recommended,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm install
 ```
-=======
-# site_growmate
-novo site da growmate
->>>>>>> 38f10909a404778aa97610afd31b7f371ed216b1
-# site-new
+
+### 3. Configure o Supabase
+
+1. Crie um projeto no [Supabase](https://supabase.com)
+2. Copie o arquivo `.env.example` para `.env`:
+
+```bash
+cp .env.example .env
+```
+
+3. Preencha as variáveis de ambiente no arquivo `.env`:
+
+```env
+VITE_SUPABASE_URL=sua_url_do_supabase
+VITE_SUPABASE_ANON_KEY=sua_chave_anon_do_supabase
+```
+
+### 4. Configure o banco de dados
+
+Execute o script SQL do arquivo `supabase/migrations/001_create_posts_table.sql` no dashboard do Supabase para criar a tabela de posts e inserir os dados iniciais.
+
+### 5. Inicie o servidor de desenvolvimento
+
+```bash
+npm run dev
+```
+
+Acesse [http://localhost:5173](http://localhost:5173) para ver o blog.
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/       # Componentes reutilizáveis
+├── hooks/           # Hooks customizados
+├── lib/             # Configurações e utilidades
+│   └── supabase.ts  # Cliente Supabase e tipos
+├── pages/           # Páginas principais
+│   ├── BlogHome.tsx     # Página inicial do blog
+│   ├── BlogPost.tsx     # Página individual do artigo
+│   ├── BlogCategory.tsx # Página de categoria
+│   └── BlogSearch.tsx   # Página de busca
+└── App.tsx          # Configuração de rotas
+```
+
+## 🎯 Funcionalidades
+
+- ✅ **Página inicial** com hero section e lista de artigos
+- ✅ **Artigos individuais** com renderização de markdown
+- ✅ **Categorias** para filtrar conteúdo
+- ✅ **Busca** por palavras-chave
+- ✅ **Design responsivo** para mobile e desktop
+- ✅ **SEO otimizado** para motores de busca
+- ✅ **Carregamento otimizado** com skeletons
+
+## 🎨 Design
+
+- **Cores primárias**: Preto (#000000) e branco (#FFFFFF)
+- **Cor de destaque**: Verde (#00FF88)
+- **Tipografia**: Inter (sans-serif)
+- **Layout**: Clean e minimalista inspirado no Medium
+
+## 🚀 Deploy
+
+### Vercel (Recomendado)
+
+1. Conecte seu repositório ao Vercel
+2. Configure as variáveis de ambiente
+3. Deploy automático a cada push
+
+### Outras plataformas
+
+O projeto pode ser facilmente deployado em outras plataformas que suportem aplicações React/Vite.
+
+## 📊 Analytics e SEO
+
+Para adicionar analytics e melhorar o SEO, considere:
+
+- Google Analytics
+- Google Search Console
+- Meta tags dinâmicas
+- Sitemap XML
+- Robots.txt
+
+## 🤝 Contribuindo
+
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
+3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
+4. Push para a branch (`git push origin feature/AmazingFeature`)
+5. Abra um Pull Request
+
+## 📄 Licença
+
+Este projeto está sob a licença da Growmate.
+
+## 📞 Contato
+
+Growmate - contato@growmate.com.br
+
+Link do projeto: [https://github.com/growmate/blog](https://github.com/growmate/blog)

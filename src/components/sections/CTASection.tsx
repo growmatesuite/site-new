@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { WHATSAPP_CONTACT_URL } from '../../lib/constants';
 
 export const CTASection: React.FC = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
@@ -93,11 +94,11 @@ export const CTASection: React.FC = () => {
 
           <motion.div
             variants={itemVariants}
-            className="flex justify-center items-center mb-8"
+            className="flex justify-center items-center mb-12"
           >
-            <Button variant="primary" size="lg">
-              Falar com Especialista
-            </Button>
+            <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="lg">Falar com Especialista</Button>
+            </a>
           </motion.div>
 
           <motion.div

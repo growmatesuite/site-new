@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
 import { Brain, Zap, Puzzle, Workflow, Database, Shield, Target, Rocket } from 'lucide-react';
 import ExploreSuite from '@/components/sections/ExploreSuite';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 
 const concepts = [
   {
@@ -123,7 +124,9 @@ export default function LangChain() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista
@@ -390,7 +393,9 @@ export default function LangChain() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-green-600 text-green-400 hover:bg-green-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista

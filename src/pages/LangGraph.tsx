@@ -21,6 +21,7 @@ import {
   BarChart3
 } from 'lucide-react';
 import ExploreSuite from '@/components/sections/ExploreSuite';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 
 const graphConcepts = [
   {
@@ -188,7 +189,9 @@ export default function LangGraph() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista
@@ -475,7 +478,9 @@ export default function LangGraph() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-orange-600 text-orange-400 hover:bg-orange-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista

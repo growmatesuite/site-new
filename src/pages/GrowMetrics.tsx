@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { 
@@ -227,9 +228,9 @@ export default function GrowMetrics() {
               
               
               <div className="flex flex-wrap justify-center gap-6 mb-8">
-                <Button variant="secondary" size="lg">
-                  Falar com Especialista
-                </Button>
+                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="secondary" size="lg">Falar com Especialista</Button>
+                </a>
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-400 max-w-4xl mx-auto">
@@ -748,9 +749,9 @@ export default function GrowMetrics() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-6 mb-12">
-                <Button variant="secondary" size="lg">
-                  Falar com Especialista
-                </Button>
+                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="secondary" size="lg">Falar com Especialista</Button>
+                </a>
               </div>
               
               <div className="text-center text-sm text-gray-400">

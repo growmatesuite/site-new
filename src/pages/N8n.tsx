@@ -8,6 +8,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
 import { Zap, Workflow, Puzzle, Target, Rocket, BarChart3, Users, Settings } from 'lucide-react';
 import ExploreSuite from '@/components/sections/ExploreSuite';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 
 const n8nFeatures = [
   {
@@ -134,7 +135,9 @@ export default function N8n() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-n8n-primary text-n8n-primary hover:bg-n8n-primary hover:text-black px-8 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista
@@ -342,7 +345,9 @@ export default function N8n() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-n8n-primary text-n8n-primary hover:bg-n8n-primary hover:text-black px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista

@@ -4,6 +4,7 @@ import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { useParallax } from '../../hooks/useParallax';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
+import { WHATSAPP_CONTACT_URL } from '../../lib/constants';
 
 export const HeroSection: React.FC = () => {
   const parallaxY = useParallax(0.3);
@@ -106,9 +107,9 @@ export const HeroSection: React.FC = () => {
             transition={{ delay: 0.8, duration: prefersReducedMotion ? 0.01 : 0.6 }}
             className="flex justify-center items-center mb-12"
           >
-            <Button variant="primary" size="lg">
-              Falar com Especialista
-            </Button>
+            <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+              <Button variant="primary" size="lg">Falar com Especialista</Button>
+            </a>
           </motion.div>
 
           {/* Metrics */}

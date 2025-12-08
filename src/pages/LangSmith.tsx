@@ -7,6 +7,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Link } from 'react-router-dom';
 import ExploreSuite from '@/components/sections/ExploreSuite';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 import { 
   BarChart3, 
   TrendingUp, 
@@ -188,7 +189,9 @@ export default function LangSmith() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista
@@ -504,7 +507,9 @@ export default function LangSmith() {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a
-                  href="mailto:ops@growmate.io"
+                  href={WHATSAPP_CONTACT_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   Falar com Especialista

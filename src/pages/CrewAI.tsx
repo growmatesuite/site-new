@@ -10,6 +10,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Users, Brain, Workflow, Link2, Expand, Shield } from 'lucide-react';
 import ExploreSuite from '@/components/sections/ExploreSuite';
+import { WHATSAPP_CONTACT_URL } from '@/lib/constants';
 
 const CrewAI: React.FC = () => {
   const features = [
@@ -118,7 +119,7 @@ const CrewAI: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:ops@growmate.io" className="inline-flex items-center justify-center bg-[#ff5a50] hover:bg-[#ff7a6a] text-black font-semibold rounded-lg px-8 py-3 transition-colors">
+              <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-[#ff5a50] hover:bg-[#ff7a6a] text-black font-semibold rounded-lg px-8 py-3 transition-colors">
                 Falar com Especialista
               </a>
             </div>
@@ -299,9 +300,9 @@ const CrewAI: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-[#ff5a50] hover:bg-[#ff7a6a] text-black font-semibold">
-                <a href="mailto:ops@growmate.io">Falar com Especialista</a>
-              </Button>
+              <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="bg-[#ff5a50] hover:bg-[#ff7a6a] text-black font-semibold">Falar com Especialista</Button>
+              </a>
             </div>
           </motion.div>
         </Container>

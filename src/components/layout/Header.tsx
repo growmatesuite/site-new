@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 import { cn } from '../../lib/utils';
-import { COMPANY_INFO } from '../../lib/constants';
+import { COMPANY_INFO, WHATSAPP_CONTACT_URL } from '../../lib/constants';
 import { Link, useLocation } from 'react-router-dom';
 
 export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ hideCtas, centerNav }) => {
@@ -100,9 +100,9 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <Button variant="primary" size="sm">
-                  Falar com Especialista
-                </Button>
+                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+                  <Button variant="primary" size="sm">Falar com Especialista</Button>
+                </a>
               </motion.div>
             </div>
           )}
@@ -166,9 +166,9 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
               </nav>
               {!hideCtas && (
                 <div className="pb-4">
-                  <Button variant="primary" size="sm" className="w-full">
-                    Falar com Especialista
-                  </Button>
+                  <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
+                    <Button variant="primary" size="sm" className="w-full">Falar com Especialista</Button>
+                  </a>
                 </div>
               )}
             </motion.div>

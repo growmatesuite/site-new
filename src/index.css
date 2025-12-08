@@ -2,191 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-
 :root {
-  /* Cores Primárias */
-  --color-black-base: #0B0B13;
-  --color-black-secondary: #0F1115;
-  --color-black-tertiary: #151823;
-
-  /* Gradação de Cinzas */
-  --color-gray-900: #1C2030;
-  --color-gray-800: #2A3245;
-  --color-gray-700: #3C4760;
-  --color-gray-600: #8A94B0;
-  --color-gray-500: #B6BFDA;
-  --color-gray-400: #E7EAF3;
-
-  /* Cores de Destaque */
-  --color-green-primary: #00E599;
-  --color-green-secondary: #10B981;
-  --color-purple-primary: #8B5CF6;
-  --color-purple-secondary: #7C3AED;
-  --color-accent-cyan: #22D3EE;
-  --color-n8n-primary: hsl(6.9 100% 67.6%);
-
-  /* Gradientes */
-  --gradient-brand: linear-gradient(135deg, #00E599 0%, #8B5CF6 100%);
-  --gradient-glow: radial-gradient(60% 60% at 50% 40%, rgba(139,92,246,0.20) 0%, rgba(0,229,153,0.12) 45%, rgba(11,11,19,0) 70%);
-
-  /* Fontes */
-  --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
-
-  /* Escala Tipográfica */
-  --text-h1: 56px/64px;
-  --text-h2: 40px/48px;
-  --text-h3: 28px/36px;
-  --text-body-large: 18px/28px;
-  --text-body-medium: 16px/26px;
-  --text-caption: 14px/22px;
-
-  /* Escala de Espaçamento (4pt base) */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-6: 24px;
-  --space-8: 32px;
-  --space-10: 40px;
-  --space-12: 48px;
-  --space-16: 64px;
-  --space-20: 80px;
-  --space-24: 96px;
-
-  /* Container e Breakpoints */
-  --container-max: 1200px;
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-
-  /* Sombras Base */
-  --shadow-base: 0 10px 30px rgba(0,0,0,0.35);
-  --shadow-glow-green: 0 0 24px rgba(0,229,153,0.35);
-  --shadow-glow-purple: 0 0 24px rgba(139,92,246,0.35);
-  --shadow-glow-coral: 0 0 24px rgba(255,95,87,0.35);
-
-  /* Efeitos Glass */
-  --glass-bg: rgba(255,255,255,0.05);
-  --glass-border: rgba(255,255,255,0.1);
-  --glass-blur: blur(16px);
-
-  font-family: var(--font-body);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   line-height: 1.5;
   font-weight: 400;
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
+/* Custom utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--color-black-base);
-  color: var(--color-gray-400);
-  overflow-x: hidden;
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
+/* Prose styles for blog content */
+.prose {
+  max-width: 740px;
+  margin: 0 auto;
 }
 
-::-webkit-scrollbar-track {
-  background: var(--color-black-secondary);
+.prose h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--color-gray-700);
-  border-radius: 4px;
+.prose h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-600);
+.prose h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 
-/* Utility Classes */
-.glass-effect {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
+.prose p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
-.gradient-text {
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.prose ul, .prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
 }
 
-.glow-green {
-  box-shadow: var(--shadow-glow-green);
-}
-
-.glow-purple {
-  box-shadow: var(--shadow-glow-purple);
-}
-
-.glow-coral {
-  box-shadow: var(--shadow-glow-coral);
-}
-
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-gradient-shift {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-}
-
-/* Focus styles for accessibility */
-.focus-visible {
-  outline: 2px solid var(--color-green-primary);
-  outline-offset: 2px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-  
-  .animate-float,
-  .animate-pulse-glow,
-  .animate-gradient-shift {
-    animation: none !important;
-  }
+.prose li {
+  margin-bottom: 0.5rem;
 }
