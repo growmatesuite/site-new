@@ -155,9 +155,7 @@ export default function GrowChatProduct() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-4 mb-8">
-                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                  <Button variant="whatsapp" size="lg" className="text-black-base bg-[#4FCE5D] hover:bg-[#128C7E]">Falar com Especialista</Button>
-                </a>
+                <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="whatsapp" size="lg" className="text-black-base bg-[#4FCE5D] hover:bg-[#128C7E]">Falar com Especialista</Button>
               </div>
               
               <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">

@@ -228,9 +228,7 @@ export default function GrowMetrics() {
               
               
               <div className="flex flex-wrap justify-center gap-6 mb-8">
-                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                  <Button variant="secondary" size="lg">Falar com Especialista</Button>
-                </a>
+                <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="secondary" size="lg">Falar com Especialista</Button>
               </div>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-400 max-w-4xl mx-auto">
@@ -749,9 +747,7 @@ export default function GrowMetrics() {
               </p>
               
               <div className="flex flex-wrap justify-center gap-6 mb-12">
-                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                  <Button variant="secondary" size="lg">Falar com Especialista</Button>
-                </a>
+                <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="secondary" size="lg">Falar com Especialista</Button>
               </div>
               
               <div className="text-center text-sm text-gray-400">

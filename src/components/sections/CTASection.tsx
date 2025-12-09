@@ -96,9 +96,7 @@ export const CTASection: React.FC = () => {
             variants={itemVariants}
             className="flex justify-center items-center mb-12"
           >
-            <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="lg">Falar com Especialista</Button>
-            </a>
+            <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="lg">Falar com Especialista</Button>
           </motion.div>
 
           <motion.div

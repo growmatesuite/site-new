@@ -107,9 +107,7 @@ export const HeroSection: React.FC = () => {
             transition={{ delay: 0.8, duration: prefersReducedMotion ? 0.01 : 0.6 }}
             className="flex justify-center items-center mb-12"
           >
-            <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-              <Button variant="primary" size="lg">Falar com Especialista</Button>
-            </a>
+            <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="lg">Falar com Especialista</Button>
           </motion.div>
 
           {/* Metrics */}

@@ -127,9 +127,7 @@ export const PartnersSection: React.FC = () => {
                 <div className="border-t border-gray-800 my-6" />
 
                 <div className="flex">
-                  <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                    <Button variant="primary" size="sm">Falar com Especialista</Button>
-                  </a>
+                  <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="sm">Falar com Especialista</Button>
                 </div>
               </Card>
             </motion.div>

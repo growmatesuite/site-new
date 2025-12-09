@@ -300,9 +300,7 @@ const CrewAI: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-[#ff5a50] hover:bg-[#ff7a6a] text-black font-semibold">Falar com Especialista</Button>
-              </a>
+              <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" size="lg" className="bg-[#ff5a50] hover:bg-[#ff7a6a] text-black font-semibold">Falar com Especialista</Button>
             </div>
           </motion.div>
         </Container>

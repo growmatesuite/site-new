@@ -100,9 +100,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                  <Button variant="primary" size="sm">Falar com Especialista</Button>
-                </a>
+                <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="sm">Falar com Especialista</Button>
               </motion.div>
             </div>
           )}
@@ -166,9 +164,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
               </nav>
               {!hideCtas && (
                 <div className="pb-4">
-                  <a href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer">
-                    <Button variant="primary" size="sm" className="w-full">Falar com Especialista</Button>
-                  </a>
+                  <Button href={WHATSAPP_CONTACT_URL} target="_blank" rel="noopener noreferrer" variant="primary" size="sm" className="w-full">Falar com Especialista</Button>
                 </div>
               )}
             </motion.div>
