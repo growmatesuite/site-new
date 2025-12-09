@@ -31,7 +31,6 @@ export const Footer: React.FC = () => {
       links: [
         { name: 'Sobre', href: '#about' },
         { name: 'Carreiras', href: '/trabalhe-conosco' },
-        { name: 'Blog', href: '/blog' },
       ],
     },
   ];
