@@ -42,7 +42,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/integracoes" element={<Integracoes />} />
-            <Route path="/growchat-produto" element={<GrowChatProduct />} />
+            <Route path="/growchat" element={<GrowChatProduct />} />
             <Route path="/growmetrics" element={<GrowMetrics />} />
             <Route path="/agno" element={<Agno />} />
             <Route path="/privacy" element={<Privacy />} />

@@ -6,6 +6,7 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import ExploreSuite from '@/components/sections/ExploreSuite';
 import {
     TrendingUp,
     Users,
@@ -28,7 +29,6 @@ import {
     Mail,
     Globe,
 } from 'lucide-react';
-import ExploreSuite from '@/components/sections/ExploreSuite';
 import { WHATSAPP_LINK } from '@/lib/constants';
 
 const metrics = [
@@ -218,20 +218,20 @@ export default function ENPS() {
                                 </a>
                             </div>
 
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-400 max-w-4xl mx-auto">
-                                <div className="flex items-center justify-center gap-2">
+                            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400 max-w-4xl mx-auto">
+                                <div className="flex items-center gap-2">
                                     <Brain className="h-5 w-5 text-purple-400" />
                                     <span>IA para RH</span>
                                 </div>
-                                <div className="flex items-center justify-center gap-2">
+                                <div className="flex items-center gap-2">
                                     <Globe className="h-5 w-5 text-purple-400" />
                                     <span>Multicanal</span>
                                 </div>
-                                <div className="flex items-center justify-center gap-2">
+                                <div className="flex items-center gap-2">
                                     <Activity className="h-5 w-5 text-purple-400" />
                                     <span>Feedback em Tempo Real</span>
                                 </div>
-                                <div className="flex items-center justify-center gap-2">
+                                <div className="flex items-center gap-2">
                                     <Shield className="h-5 w-5 text-purple-400" />
                                     <span>100% Anônimo</span>
                                 </div>

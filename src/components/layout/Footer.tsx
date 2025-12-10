@@ -4,16 +4,14 @@ import { motion } from 'framer-motion';
 import { Instagram, Youtube, Linkedin } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { cn } from '../../lib/utils';
-import { useTheme } from '../../context/ThemeContext';
+
 
 export const Footer: React.FC = () => {
-  const { reduceMotion, toggleReduceMotion } = useTheme();
-
   const navigationSections = [
     {
       title: 'Soluções',
       links: [
-        { name: 'GrowChat', href: '/growchat-produto' },
+        { name: 'GrowChat', href: '/growchat' },
         { name: 'GrowMetrics', href: '/growmetrics' },
         { name: 'Integrações', href: '/integracoes' },
       ],
@@ -74,18 +72,6 @@ export const Footer: React.FC = () => {
               Criando agentes de IA que transformam negócios.
               Especialistas em orquestração e automação inteligente.
             </p>
-
-            {/* Accessibility Toggle */}
-            <div className="mb-6">
-              <button
-                onClick={toggleReduceMotion}
-                className="flex items-center text-sm text-gray-400 hover:text-white transition-colors duration-200"
-                aria-label="Toggle reduced motion"
-              >
-                <div className={`w-4 h-4 rounded-full mr-2 ${reduceMotion ? 'bg-green-primary' : 'bg-gray-600'}`}></div>
-                Reduzir animações
-              </button>
-            </div>
 
             {/* Contact Info */}
             <div className="space-y-2 text-sm text-gray-400">

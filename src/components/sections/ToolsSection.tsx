@@ -93,11 +93,11 @@ export const ToolsSection: React.FC = () => {
     Agno: '/agno',
     CrewAI: '/crewai',
     n8n: '/n8n',
-    GrowChat: '/growchat-produto',
+    GrowChat: '/growchat',
   };
 
   return (
-    <section className="py-24 relative">
+    <section className="pt-12 pb-24 relative">
       <Container>
         <motion.div
           variants={containerVariants}
@@ -192,7 +192,7 @@ export const ToolsSection: React.FC = () => {
                         </h3>
                       )}
                     </div>
-                    
+
                     <p className="text-gray-400 mb-6 flex-grow">
                       {tool.description}
                     </p>
@@ -264,7 +264,7 @@ export const ToolsSection: React.FC = () => {
                       </h3>
                     )}
                   </div>
-                  
+
                   <p className="text-gray-400 mb-6 flex-grow">
                     {tool.description}
                   </p>

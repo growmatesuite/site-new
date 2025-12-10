@@ -101,6 +101,7 @@ export default {
         'glow-pink': '0 0 24px rgba(236,72,153,0.35)',
         'glow-orange': '0 0 24px rgba(249,115,22,0.35)',
         'glow-blue': '0 0 24px rgba(59,130,246,0.35)',
+        'glow-cyan': '0 0 24px rgba(6,182,212,0.35)',
       },
       backgroundImage: {
         'brand-gradient': 'linear-gradient(135deg, #00E599 0%, #8B5CF6 100%)',

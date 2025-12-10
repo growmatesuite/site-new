@@ -9,12 +9,12 @@ type Item = {
   name: string;
   description: string;
   to: string;
-  glowColor: 'green' | 'purple' | 'coral' | 'whatsapp' | 'pink' | 'orange' | 'blue';
+  glowColor: 'green' | 'purple' | 'coral' | 'whatsapp' | 'pink' | 'orange' | 'blue' | 'cyan';
 };
 
 const items: Item[] = [
   // Produtos
-  { key: 'GrowChatProduct', name: 'GrowChat', description: 'Transforme o relacionamento com clientes e capture leads melhores.', to: '/growchat-produto', glowColor: 'green' },
+  { key: 'GrowChatProduct', name: 'GrowChat', description: 'Transforme o relacionamento com clientes e capture leads melhores.', to: '/growchat', glowColor: 'green' },
   { key: 'GrowMetrics', name: 'GrowMetrics', description: 'Mensuração NPS, CSAT, CES e insights com IA em tempo real.', to: '/growmetrics', glowColor: 'green' },
   // Páginas internas
   { key: 'Integracoes', name: 'Integrações', description: 'Conecte-se às principais ferramentas e plataformas do mercado.', to: '/integracoes', glowColor: 'green' },
@@ -39,7 +39,12 @@ export const ExploreSuite: React.FC = () => {
     '/n8n': 'coral',
     '/integracoes': 'green',
     '/growmetrics': 'purple',
-    '/growchat-produto': 'whatsapp',
+    '/nps': 'purple',
+    '/csat': 'green',
+    '/ces': 'cyan',
+    '/pmf': 'pink',
+    '/enps': 'purple',
+    '/growchat': 'whatsapp',
   };
   const themeColor: Item['glowColor'] = themeColorMap[pathname] ?? 'green';
 
@@ -51,6 +56,7 @@ export const ExploreSuite: React.FC = () => {
     pink: { border: 'border-pink-600 hover:border-pink-600', badgeBg: 'bg-pink-900/40', badgeText: 'text-pink-400', pillBg: 'bg-pink-900/30', pillText: 'text-pink-200' },
     coral: { border: 'border-n8n-primary hover:border-n8n-primary', badgeBg: 'bg-n8n-primary/20', badgeText: 'text-n8n-primary', pillBg: 'bg-n8n-primary/15', pillText: 'text-n8n-primary' },
     whatsapp: { border: 'border-whatsapp-primary hover:border-whatsapp-primary', badgeBg: 'bg-whatsapp-dark/40', badgeText: 'text-whatsapp-primary', pillBg: 'bg-whatsapp-dark/30', pillText: 'text-whatsapp-primary' },
+    cyan: { border: 'border-cyan-600 hover:border-cyan-600', badgeBg: 'bg-cyan-900/40', badgeText: 'text-cyan-400', pillBg: 'bg-cyan-900/30', pillText: 'text-cyan-200' },
   };
   const accent = accents[themeColor];
 
@@ -64,7 +70,8 @@ export const ExploreSuite: React.FC = () => {
             themeColor === 'purple' && 'text-purple-400',
             themeColor === 'pink' && 'text-pink-400',
             themeColor === 'coral' && 'text-n8n-primary',
-            themeColor === 'whatsapp' && 'text-whatsapp-primary'
+            themeColor === 'whatsapp' && 'text-whatsapp-primary',
+            themeColor === 'cyan' && 'text-cyan-400'
           )}>Acelere seu crescimento</div>
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-white">
             Explore as soluções da Growmate

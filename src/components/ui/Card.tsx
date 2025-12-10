@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '../../lib/utils';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
-  glowColor?: 'green' | 'purple' | 'coral' | 'whatsapp' | 'pink' | 'orange' | 'blue' | 'none';
+  glowColor?: 'green' | 'purple' | 'coral' | 'whatsapp' | 'pink' | 'orange' | 'blue' | 'cyan' | 'none';
   hoverable?: boolean;
   children: React.ReactNode;
 }
@@ -17,6 +17,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
       pink: 'shadow-glow-pink hover:shadow-glow-pink/70',
       orange: 'shadow-glow-orange hover:shadow-glow-orange/70',
       blue: 'shadow-glow-blue hover:shadow-glow-blue/70',
+      cyan: 'shadow-glow-cyan hover:shadow-glow-cyan/70',
       none: '',
     } as const;
 

@@ -34,6 +34,7 @@ import {
   Globe,
   Zap as Lightning
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ExploreSuite from '@/components/sections/ExploreSuite';
 import { WHATSAPP_LINK } from '@/lib/constants';
 
@@ -43,42 +44,48 @@ const metrics = [
     description: 'Mensure a lealdade de marca do seu cliente com a metodologia mais utilizada do mundo.',
     icon: <TrendingUp className="h-6 w-6" />,
     color: 'purple',
-    gradient: 'from-purple-500 to-purple-400'
+    gradient: 'from-purple-500 to-purple-400',
+    path: '/nps'
   },
   {
     title: 'CSAT - Customer Satisfaction',
     description: 'Avalie a satisfação em cada ponto de contato com pesquisas rápidas e eficientes.',
     icon: <Heart className="h-6 w-6" />,
     color: 'purple',
-    gradient: 'from-purple-500 to-purple-400'
+    gradient: 'from-purple-500 to-purple-400',
+    path: '/csat'
   },
   {
     title: 'CES - Customer Effort Score',
     description: 'Mensure o esforço que seus clientes fazem para resolver seus problemas.',
     icon: <Zap className="h-6 w-6" />,
     color: 'purple',
-    gradient: 'from-purple-500 to-violet-400'
+    gradient: 'from-purple-500 to-violet-400',
+    path: '/ces'
   },
   {
     title: 'PMF - Product Market Fit',
     description: 'Descubra se seu produto realmente atende às necessidades do mercado.',
     icon: <Target className="h-6 w-6" />,
     color: 'purple',
-    gradient: 'from-purple-500 to-purple-400'
+    gradient: 'from-purple-500 to-purple-400',
+    path: '/pmf'
   },
   {
     title: 'eNPS - Employee Net Promoter Score',
     description: 'Avalie o engajamento e satisfação dos seus colaboradores internamente.',
     icon: <Users className="h-6 w-6" />,
     color: 'purple',
-    gradient: 'from-purple-500 to-purple-400'
+    gradient: 'from-purple-500 to-purple-400',
+    path: '/enps'
   },
   {
     title: 'Análise de Sentimentos',
     description: 'IA avançada que interpreta emoções e intenções nos feedbacks dos clientes.',
     icon: <Brain className="h-6 w-6" />,
     color: 'purple',
-    gradient: 'from-purple-500 to-purple-400'
+    gradient: 'from-purple-500 to-purple-400',
+    path: null
   }
 ];
 
@@ -235,20 +242,20 @@ export default function GrowMetrics() {
                 </a>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm text-gray-400 max-w-4xl mx-auto">
-                <div className="flex items-center justify-center gap-2">
+              <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
+                <div className="flex items-center gap-2">
                   <Brain className="h-5 w-5 text-purple-400" />
                   <span>IA sob medida</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center gap-2">
                   <Globe className="h-5 w-5 text-purple-400" />
                   <span>Multicanal</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center gap-2">
                   <Activity className="h-5 w-5 text-purple-400" />
                   <span>Tempo Real</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
+                <div className="flex items-center gap-2">
                   <Shield className="h-5 w-5 text-purple-400" />
                   <span>LGPD Compliance</span>
                 </div>
@@ -393,21 +400,41 @@ export default function GrowMetrics() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                 >
-                  <Card
-                    glowColor={metric.color as any}
-                    hoverable
-                    className="h-full group"
-                  >
-                    <div className="p-8">
-                      <div className="flex items-center gap-4 mb-6">
-                        <div className={`p-3 bg-gradient-to-r ${metric.gradient} rounded-xl text-white group-hover:scale-110 transition-transform`}>
-                          {metric.icon}
+                  {metric.path ? (
+                    <Link to={metric.path} className="block h-full">
+                      <Card
+                        glowColor={metric.color as any}
+                        hoverable
+                        className="h-full group"
+                      >
+                        <div className="p-8">
+                          <div className="flex items-center gap-4 mb-6">
+                            <div className={`p-3 bg-gradient-to-r ${metric.gradient} rounded-xl text-white group-hover:scale-110 transition-transform`}>
+                              {metric.icon}
+                            </div>
+                            <h3 className="text-xl font-semibold">{metric.title}</h3>
+                          </div>
+                          <p className="text-gray-300 leading-relaxed">{metric.description}</p>
                         </div>
-                        <h3 className="text-xl font-semibold">{metric.title}</h3>
+                      </Card>
+                    </Link>
+                  ) : (
+                    <Card
+                      glowColor={metric.color as any}
+                      hoverable
+                      className="h-full group"
+                    >
+                      <div className="p-8">
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className={`p-3 bg-gradient-to-r ${metric.gradient} rounded-xl text-white group-hover:scale-110 transition-transform`}>
+                            {metric.icon}
+                          </div>
+                          <h3 className="text-xl font-semibold">{metric.title}</h3>
+                        </div>
+                        <p className="text-gray-300 leading-relaxed">{metric.description}</p>
                       </div>
-                      <p className="text-gray-300 leading-relaxed">{metric.description}</p>
-                    </div>
-                  </Card>
+                    </Card>
+                  )}
                 </motion.div>
               ))}
             </div>
