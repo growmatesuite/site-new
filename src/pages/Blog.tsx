@@ -11,17 +11,19 @@ import ExploreSuite from '@/components/sections/ExploreSuite';
 import { BlogSearch } from '@/components/blog/BlogSearch';
 import { NewsletterSection } from '@/components/blog/NewsletterSection';
 import { fetchAPI, getStrapiMedia } from '@/lib/strapi';
-import { formatDate } from '@/lib/blog-utils';
+import { formatDate, extractText } from '@/lib/blog-utils';
 
 export default function Blog() {
     const [searchParams] = useSearchParams();
     const searchQuery = searchParams.get('q');
     const [articles, setArticles] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
         async function loadArticles() {
             setLoading(true);
+            setError(null);
             try {
                 const params: any = {
                     populate: {
@@ -32,24 +34,43 @@ export default function Blog() {
                             populate: ["avatar"],
                         },
                     },
-                    sort: ["featured:desc", "publishedAt:desc"]
+                    sort: ["featured:desc", "publishedAt:desc"],
+                    pagination: {
+                        limit: 100 // Fetch a large enough batch for client-side search
+                    }
                 };
 
-                if (searchQuery) {
-                    params.filters = {
-                        $or: [
-                            { title: { $containsi: searchQuery } },
-                            { description: { $containsi: searchQuery } }, // Description might be mapped to 'excerpt' or similar in Strapi, adjusting query
-                        ]
-                    };
-                    // Strapi often maps 'q' to a full text search plugin, but using specific filters is safer without knowing plugins
-                    // Let's rely on title/content if `_q` isn't supported by default
-                }
-
                 const data = await fetchAPI("/articles", params);
-                setArticles(data?.data || []);
-            } catch (error) {
-                console.error("Failed to fetch articles", error);
+                const allArticles = data?.data || [];
+
+                if (searchQuery) {
+                    const query = searchQuery.toLowerCase();
+                    const filtered = allArticles.filter((article: any) => {
+                        const title = (article.title || "").toLowerCase();
+                        const excerpt = (article.excerpt || "").toLowerCase();
+                        const takeaways = (article.key_takeaways || "").toLowerCase();
+                        const categories = (article.categories || []).map((c: any) => c.name.toLowerCase()).join(" ");
+                        const authors = (article.authors || []).map((a: any) => a.name.toLowerCase()).join(" ");
+
+                        // Extract text from blocks content
+                        const contentText = extractText(article.content).toLowerCase();
+
+                        return (
+                            title.includes(query) ||
+                            excerpt.includes(query) ||
+                            takeaways.includes(query) ||
+                            categories.includes(query) ||
+                            authors.includes(query) ||
+                            contentText.includes(query)
+                        );
+                    });
+                    setArticles(filtered);
+                } else {
+                    setArticles(allArticles);
+                }
+            } catch (err: any) {
+                console.error("Failed to fetch articles", err);
+                setError(err.message || "Erro ao conectar com API");
             } finally {
                 setLoading(false);
             }
@@ -72,12 +93,15 @@ export default function Blog() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6 }}
-                            className="text-center mb-12"
+                            className="text-center max-w-4xl mx-auto mb-16"
                         >
-                            <h1 className="text-4xl md:text-5xl font-heading font-bold">Blog</h1>
-                            <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-                                Fique por dentro das últimas novidades sobre inteligência artificial,
-                                automação e estratégias de crescimento.
+                            <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight leading-tight">
+                                Inteligência que <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600">escala.</span>
+                                <br />
+                                Resultados que orquestram.
+                            </h1>
+                            <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+                                Insights sobre IA Agêntica, LLMs Enterprise e como construir uma força de trabalho infinitamente escalável.
                             </p>
                         </motion.div>
 
@@ -91,6 +115,16 @@ export default function Blog() {
                                 </p>
                             </div>
                         )}
+
+                        {error && (
+                            <div className="mb-8 p-4 bg-red-500/10 border border-red-500/50 rounded-xl text-center">
+                                <p className="text-red-400 font-bold mb-2">Erro de Conexão:</p>
+                                <p className="text-red-300 text-sm">{error}</p>
+                                <p className="text-gray-500 text-xs mt-2">Verifique se o backend está rodando em http://localhost:1337</p>
+                            </div>
+                        )}
+
+
 
                         {loading ? (
                             <div className="flex justify-center py-20">
@@ -176,7 +210,7 @@ export default function Blog() {
                                             transition={{ duration: 0.5, delay: idx * 0.1 }}
                                         >
                                             <Link to={`/blog/${article.slug}`} className="group h-full block">
-                                                <Card hoverable className="h-full flex flex-col overflow-hidden">
+                                                <Card hoverable className="h-full flex flex-col overflow-hidden hover-glow-purple transition-all duration-300">
                                                     <div className="relative aspect-video w-full overflow-hidden bg-black-secondary mb-4 rounded-xl border border-white/5">
                                                         {article.cover ? (
                                                             <img
@@ -194,20 +228,20 @@ export default function Blog() {
                                                     <div className="flex-1 flex flex-col">
                                                         <div className="mb-4 flex gap-2">
                                                             {article.categories?.map((category: any) => (
-                                                                <span className="text-xs font-medium px-2 py-1 rounded bg-green-900/30 text-green-400 border border-green-900/50" key={category.id}>
+                                                                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded border border-purple-primary/30 bg-purple-primary/10 text-purple-primary" key={category.id}>
                                                                     {category.name}
                                                                 </span>
                                                             ))}
                                                         </div>
-                                                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-green-400 transition-colors line-clamp-2">
+                                                        <h3 className="text-xl font-bold mb-2 text-white group-hover:text-purple-primary transition-colors line-clamp-2 leading-tight font-heading">
                                                             {article.title}
                                                         </h3>
-                                                        <p className="text-gray-400 mb-6 flex-grow line-clamp-3 text-sm">
+                                                        <p className="text-gray-400 mb-6 flex-grow line-clamp-2 text-sm leading-relaxed">
                                                             {article.excerpt}
                                                         </p>
-                                                        <div className="flex items-center justify-between text-sm text-gray-500 mt-auto pt-4 border-t border-gray-800">
+                                                        <div className="flex items-center justify-between text-[10px] text-gray-500 mt-auto pt-4 border-t border-white/5 font-medium uppercase tracking-widest">
                                                             <span>{formatDate(article.publishedAt)}</span>
-                                                            <span className="group-hover:text-white transition-colors uppercase tracking-wider text-xs">Leia mais</span>
+                                                            <span className="group-hover:text-white transition-colors">Leia mais</span>
                                                         </div>
                                                     </div>
                                                 </Card>

@@ -1,6 +1,6 @@
 import qs from "qs";
 
-export const STRAPI_API_URL = import.meta.env.VITE_STRAPI_URL || "http://localhost:1337";
+export const STRAPI_API_URL = import.meta.env.VITE_STRAPI_URL || "";
 
 export function getStrapiURL(path = "") {
     return `${STRAPI_API_URL}${path}`;
@@ -46,7 +46,7 @@ export async function fetchAPI(
         return data;
     } catch (error) {
         console.error(`[Strapi Fetch] Error:`, error);
-        return { data: [] };
+        throw error;
     }
 }
 

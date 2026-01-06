@@ -183,10 +183,10 @@ export default function BlogPost() {
                 <main className="pt-24 pb-24">
                     <article className="container mx-auto px-4 py-12 md:py-20 animate-in fade-in duration-700">
                         {/* Breadcrumbs */}
-                        <nav className="mx-auto max-w-4xl mb-8 md:mb-12 flex items-center gap-2 text-[10px] md:text-sm text-gray-500 font-medium tracking-wide">
-                            <Link to="/blog" className="hover:text-green-primary transition-colors shrink-0">BLOG</Link>
-                            <span className="text-gray-700">/</span>
-                            <span className="text-gray-400 truncate uppercase tracking-widest">{article.title}</span>
+                        <nav className="mx-auto max-w-4xl mb-8 md:mb-12 flex items-center gap-2 text-[10px] md:text-sm font-medium tracking-wide">
+                            <Link to="/blog" className="text-green-primary/80 hover:text-green-primary transition-colors shrink-0">BLOG</Link>
+                            <span className="text-gray-800">/</span>
+                            <span className="text-gray-500 truncate uppercase tracking-widest">{article.title}</span>
                         </nav>
 
                         <div className="mx-auto max-w-4xl space-y-12">
@@ -245,19 +245,21 @@ export default function BlogPost() {
                             </div>
 
                             {keyTakeaways.length > 0 && (
-                                <div className="bg-gradient-to-br from-green-primary/10 via-white/5 to-transparent border border-green-primary/20 rounded-2xl md:rounded-3xl p-6 md:p-10 relative overflow-hidden group">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-green-primary/10 blur-[80px] rounded-full group-hover:bg-green-primary/20 transition-all duration-1000" />
-                                    <h3 className="text-green-primary font-bold font-heading text-base md:text-lg mb-6 flex items-center gap-3">
-                                        <span className="w-2 h-2 rounded-full bg-green-primary animate-pulse" />
-                                        <span className="uppercase tracking-wider">O que você vai aprender</span>
+                                <div className="bg-black-secondary/50 border border-green-primary/30 rounded-3xl p-8 md:p-12 relative overflow-hidden shadow-2xl shadow-green-primary/5">
+                                    <div className="absolute -top-24 -right-24 w-64 h-64 bg-green-primary/10 blur-[100px] rounded-full" />
+
+                                    <h3 className="text-green-primary font-bold font-heading text-lg md:text-xl mb-8 flex items-center gap-3">
+                                        <span className="w-2.5 h-2.5 rounded-full bg-green-primary shadow-[0_0_12px_rgba(0,229,153,0.5)]" />
+                                        <span className="uppercase tracking-widest">O QUE VOCÊ VAI APRENDER</span>
                                     </h3>
-                                    <ul className="grid md:grid-cols-1 gap-4">
+
+                                    <ul className="space-y-6">
                                         {keyTakeaways.map((item: string, i: number) => (
-                                            <li key={i} className="flex items-start gap-3 md:gap-4 text-gray-300">
-                                                <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-green-primary/20 flex items-center justify-center text-green-primary text-[10px] font-bold mt-1">
+                                            <li key={i} className="flex items-start gap-4 text-gray-200">
+                                                <span className="flex-shrink-0 w-7 h-7 rounded-full bg-green-primary/20 border border-green-primary/30 flex items-center justify-center text-green-primary text-xs font-bold mt-0.5">
                                                     {i + 1}
                                                 </span>
-                                                <p className="text-sm md:text-base font-medium leading-relaxed">{item}</p>
+                                                <p className="text-base md:text-lg font-medium leading-relaxed">{item}</p>
                                             </li>
                                         ))}
                                     </ul>

@@ -9,6 +9,18 @@ export default defineConfig({
   },
   server: {
     port: 3001,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:1337',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/uploads': {
+        target: 'http://127.0.0.1:1337',
+        changeOrigin: true,
+        secure: false,
+      },
+    }
   },
   plugins: [
     react({

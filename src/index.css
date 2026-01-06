@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   /* Cores Primárias */
   --color-black-base: #0B0B13;
@@ -27,7 +28,7 @@
 
   /* Gradientes */
   --gradient-brand: linear-gradient(135deg, #00E599 0%, #8B5CF6 100%);
-  --gradient-glow: radial-gradient(60% 60% at 50% 40%, rgba(139,92,246,0.20) 0%, rgba(0,229,153,0.12) 45%, rgba(11,11,19,0) 70%);
+  --gradient-glow: radial-gradient(60% 60% at 50% 40%, rgba(139, 92, 246, 0.20) 0%, rgba(0, 229, 153, 0.12) 45%, rgba(11, 11, 19, 0) 70%);
 
   /* Fontes */
   --font-heading: "Space Grotesk", "Inter", system-ui, sans-serif;
@@ -63,14 +64,14 @@
   --breakpoint-xl: 1280px;
 
   /* Sombras Base */
-  --shadow-base: 0 10px 30px rgba(0,0,0,0.35);
-  --shadow-glow-green: 0 0 24px rgba(0,229,153,0.35);
-  --shadow-glow-purple: 0 0 24px rgba(139,92,246,0.35);
-  --shadow-glow-coral: 0 0 24px rgba(255,95,87,0.35);
+  --shadow-base: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow-green: 0 0 24px rgba(0, 229, 153, 0.35);
+  --shadow-glow-purple: 0 0 24px rgba(139, 92, 246, 0.35);
+  --shadow-glow-coral: 0 0 24px rgba(255, 95, 87, 0.35);
 
   /* Efeitos Glass */
-  --glass-bg: rgba(255,255,255,0.05);
-  --glass-border: rgba(255,255,255,0.1);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(16px);
 
   font-family: var(--font-body);
@@ -135,57 +136,82 @@ body {
   box-shadow: var(--shadow-glow-purple);
 }
 
+/* Custom Variables */
+:root {
+  --shadow-glow-green: 0 0 24px rgba(0, 229, 153, 0.25);
+  --shadow-glow-purple: 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
 .glow-coral {
   box-shadow: var(--shadow-glow-coral);
 }
 
-/* Animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.animate-gradient-shift {
-  background-size: 200% 200%;
-  animation: gradient-shift 3s ease infinite;
-}
-
-/* Focus styles for accessibility */
-.focus-visible {
-  outline: 2px solid var(--color-green-primary);
-  outline-offset: 2px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-  
-  .animate-float,
-  .animate-pulse-glow,
-  .animate-gradient-shift {
-    animation: none !important;
+
+  /* Prose Overrides for Vision V3 */
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    margin-top: 2.5em !important;
+    margin-bottom: 1em !important;
+    scroll-margin-top: 100px;
+  }
+
+  .prose p {
+    margin-bottom: 1.5em !important;
+  }
+}
+
+@layer utilities {
+  .bg-glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .text-gradient-brand {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-green-primary to-purple-primary;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-green-primary to-purple-primary;
+  }
+
+  .hover-glow-green:hover {
+    box-shadow: var(--shadow-glow-green);
+    border-color: rgba(0, 229, 153, 0.3);
+  }
+
+  .hover-glow-purple:hover {
+    box-shadow: var(--shadow-glow-purple);
+    border-color: rgba(139, 92, 246, 0.3);
+  }
+
+
+  /* Focus styles for accessibility */
+  .focus-visible {
+    outline: 2px solid var(--color-green-primary);
+    outline-offset: 2px;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+
+    .animate-float,
+    .animate-pulse-glow,
+    .animate-gradient-shift {
+      animation: none !important;
+    }
   }
 }
