@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import Home from "@/pages/Home";
+import Blog from "@/pages/Blog";
 import Integracoes from "@/pages/Integracoes";
 import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
@@ -41,6 +42,7 @@ export default function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/integracoes" element={<Integracoes />} />
             <Route path="/growchat" element={<GrowChatProduct />} />
             <Route path="/growmetrics" element={<GrowMetrics />} />

@@ -38,6 +38,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
     { name: 'GrowChat', href: '/growchat' },
     { name: 'GrowMetrics', href: '/growmetrics' },
     { name: 'Integrações', href: '/integracoes' },
+    { name: 'Blog', href: '/blog' },
   ];
 
   return (
