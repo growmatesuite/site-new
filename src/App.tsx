@@ -22,6 +22,7 @@ import GrowChatProduct from "@/pages/GrowChatProduct";
 import GrowMetrics from "@/pages/GrowMetrics";
 import { ThemeProvider } from "@/context/ThemeContext";
 import NotFound from "@/pages/NotFound";
+import BlogPost from "@/pages/BlogPost";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -60,6 +61,7 @@ export default function App() {
             <Route path="/pmf" element={<PMF />} />
             <Route path="/enps" element={<ENPS />} />
             <Route path="/trabalhe-conosco" element={<WorkWithUs />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
