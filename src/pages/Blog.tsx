@@ -82,7 +82,7 @@ export default function Blog() {
         <>
             <Helmet>
                 <title>Blog | Growmate</title>
-                <meta name="description" content="Artigos sobre IA, automação e futuro do trabalho." />
+                <meta name="description" content="Explore insights profundos sobre IA Agêntica, LLMs Enterprise e o futuro da automação de processos." />
             </Helmet>
 
             <div className="min-h-screen bg-black-base">

@@ -41,13 +41,6 @@ const tools = [
     color: 'green' as const,
     features: ['Role-based', 'Delegation', 'Tools', 'Memory'],
   },
-  {
-    name: 'n8n',
-    description: 'Automação visual de workflows',
-    icon: '⚡',
-    color: 'green' as const,
-    features: ['Visual Editor', 'Integrations', 'Webhooks', 'AI Nodes'],
-  },
 ];
 
 const logoPairs: Record<string, [string, string]> = {
@@ -59,7 +52,6 @@ const logoPairs: Record<string, [string, string]> = {
 const singleLogoMap: Record<string, string> = {
   CrewAI: '/logos/crewai.svg',
   Agno: '/logos/agno.png',
-  n8n: '/logos/n8n.png',
 };
 
 export const ToolsSection: React.FC = () => {
@@ -92,7 +84,6 @@ export const ToolsSection: React.FC = () => {
     LangSmith: '/langsmith',
     Agno: '/agno',
     CrewAI: '/crewai',
-    n8n: '/n8n',
     GrowChat: '/growchat',
   };
 

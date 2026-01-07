@@ -77,7 +77,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
             </motion.div>
 
             {/* Desktop Navigation */}
-            <nav className={cn('hidden md:flex items-center space-x-8', centerNav && 'absolute left-1/2 -translate-x-1/2')}>
+            <nav className={cn('hidden lg:flex items-center space-x-8', centerNav && 'absolute left-1/2 -translate-x-1/2')}>
               {navigationItems.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -99,7 +99,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
             </nav>
 
             {!hideCtas && (
-              <div className="hidden md:flex items-center">
+              <div className="hidden lg:flex items-center">
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -116,7 +116,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 text-gray-400 hover:text-white transition-colors z-50 relative"
+              className="lg:hidden p-2 text-gray-400 hover:text-white transition-colors z-50 relative"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
@@ -134,7 +134,7 @@ export const Header: React.FC<{ hideCtas?: boolean; centerNav?: boolean }> = ({ 
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-40 bg-black-base/95 backdrop-blur-xl md:hidden flex flex-col"
+            className="fixed inset-0 z-40 bg-black-base/95 backdrop-blur-xl lg:hidden flex flex-col"
           >
             <Container className="flex-1 flex flex-col h-full pt-24 pb-8">
               <nav className="flex-1 flex flex-col items-center justify-center space-y-8">

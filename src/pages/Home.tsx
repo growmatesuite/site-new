@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Home"
-        description="Criamos, treinamos e orquestramos agentes de IA que entendem seus processos e entregam resultados. Soluções enterprise-ready com implementação em semanas."
+        title="Agentes de IA Enterprise Ready"
+        description="Líderes em orquestração de IA Agêntica no Brasil. Criamos, treinamos e escalamos agentes que automatizam processos complexos e entregam resultados reais em semanas."
       />
       <div className="min-h-screen bg-black-base">
         <Header />
