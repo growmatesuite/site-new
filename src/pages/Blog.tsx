@@ -10,6 +10,7 @@ import { Footer } from '@/components/layout/Footer';
 import ExploreSuite from '@/components/sections/ExploreSuite';
 import { BlogSearch } from '@/components/blog/BlogSearch';
 import { NewsletterSection } from '@/components/blog/NewsletterSection';
+import { BlogSkeleton } from '@/components/blog/BlogSkeleton';
 import { fetchAPI, getStrapiMedia } from '@/lib/strapi';
 import { formatDate, extractText } from '@/lib/blog-utils';
 
@@ -127,9 +128,7 @@ export default function Blog() {
 
 
                         {loading ? (
-                            <div className="flex justify-center py-20">
-                                <div className="w-10 h-10 border-4 border-green-primary border-t-transparent rounded-full animate-spin" />
-                            </div>
+                            <BlogSkeleton />
                         ) : articles.length === 0 ? (
                             <div className="py-20 text-center bg-black-secondary/30 rounded-[3rem] border border-dashed border-white/10">
                                 <h2 className="text-2xl font-bold font-heading text-white mb-4">Nenhum resultado encontrado</h2>

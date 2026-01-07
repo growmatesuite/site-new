@@ -8,7 +8,6 @@ import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import LangChain from "@/pages/LangChain";
 import LangGraph from "@/pages/LangGraph";
-import N8n from "@/pages/N8n";
 import CrewAI from "@/pages/CrewAI";
 import Agno from "@/pages/Agno";
 import WorkWithUs from "@/pages/WorkWithUs";
@@ -51,7 +50,6 @@ export default function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/langchain" element={<LangChain />} />
-            <Route path="/n8n" element={<N8n />} />
             <Route path="/langgraph" element={<LangGraph />} />
             <Route path="/crewai" element={<CrewAI />} />
             <Route path="/langsmith" element={<LangSmith />} />
