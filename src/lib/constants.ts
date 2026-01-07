@@ -233,16 +233,6 @@ export const INTEGRATIONS = [
     description: 'Gerencie suas interações com clientes do Telegram através do GrowChat',
   },
   {
-    key: 'line',
-    name: 'Line',
-    description: 'Gerencie suas interações com clientes do Line através do GrowChat',
-  },
-  {
-    key: 'sms',
-    name: 'SMS',
-    description: 'Gerencie suas interações com clientes via SMS através do GrowChat',
-  },
-  {
     key: 'email',
     name: 'Email',
     description: 'Gerencie suas interações com clientes por email através do GrowChat',
@@ -251,11 +241,6 @@ export const INTEGRATIONS = [
     key: 'slack',
     name: 'Slack',
     description: 'Responda às consultas dos seus clientes diretamente no Slack',
-  },
-  {
-    key: 'n8n',
-    name: 'n8n',
-    description: 'Integre suas automações no n8n com o GrowChat',
   },
 ];
 
