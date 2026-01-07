@@ -1,1 +1,16 @@
-{"rewrites":[{"source":"/(.*)","destination":"/index.html"}]}
+{
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "https://linty-rayden-nonpedagogic.ngrok-free.dev/api/:path*"
+        },
+        {
+            "source": "/uploads/:path*",
+            "destination": "https://linty-rayden-nonpedagogic.ngrok-free.dev/uploads/:path*"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/index.html"
+        }
+    ]
+}

@@ -120,7 +120,7 @@ export default function Blog() {
                             <div className="mb-8 p-4 bg-red-500/10 border border-red-500/50 rounded-xl text-center">
                                 <p className="text-red-400 font-bold mb-2">Erro de Conexão:</p>
                                 <p className="text-red-300 text-sm">{error}</p>
-                                <p className="text-gray-500 text-xs mt-2">Verifique se o backend está rodando em http://localhost:1337</p>
+                                <p className="text-gray-500 text-xs mt-2">Verifique a conexão com o servidor de conteúdo ou o status do túnel de acesso.</p>
                             </div>
                         )}
 
