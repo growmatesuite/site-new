@@ -40,7 +40,6 @@ export const Footer: React.FC = () => {
       title: 'Empresa',
       links: [
         { name: 'Sobre', href: '/sobre' },
-        { name: 'Autores', href: '/autores' },
         { name: 'Carreiras', href: '/trabalhe-conosco' },
       ],
     },
