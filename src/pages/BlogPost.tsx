@@ -12,15 +12,24 @@ import { PostReadabilityEnhancements } from '@/components/blog/PostReadabilityEn
 import { NewsletterSection } from '@/components/blog/NewsletterSection';
 import { fetchAPI, getStrapiMedia } from '@/lib/strapi';
 import { extractText, slugify, formatDate } from '@/lib/blog-utils';
+import { SEO } from '@/components/SEO';
+import { generateArticleSchema, generateBreadcrumbSchema } from '@/lib/seo';
 
-function RelatedArticles({ currentSlug }: { currentSlug: string }) {
+function RelatedArticles({ currentSlug, categories }: { currentSlug: string, categories?: any[] }) {
     const [articles, setArticles] = useState<any[]>([]);
 
     useEffect(() => {
         async function loadRelated() {
             try {
+                const categoryId = categories && categories.length > 0 ? categories[0].id : null;
+                const filters: any = { slug: { $ne: currentSlug } };
+
+                if (categoryId) {
+                    filters.categories = { id: { $eq: categoryId } };
+                }
+
                 const data = await fetchAPI("/articles", {
-                    filters: { slug: { $ne: currentSlug } },
+                    filters,
                     pagination: { limit: 3 },
                     populate: {
                         cover: true,
@@ -38,7 +47,7 @@ function RelatedArticles({ currentSlug }: { currentSlug: string }) {
             }
         }
         loadRelated();
-    }, [currentSlug]);
+    }, [currentSlug, categories]);
 
     if (articles.length === 0) return null;
 
@@ -117,23 +126,23 @@ export default function BlogPost() {
         loadArticle();
     }, [slug]);
 
-    if (loading) {
-        return (
-            <div className="min-h-screen bg-black-base flex items-center justify-center">
+    if (loading) return (
+        <div className="min-h-screen bg-black-base">
+            <Header />
+            <div className="pt-40 flex justify-center">
                 <div className="w-10 h-10 border-4 border-green-primary border-t-transparent rounded-full animate-spin" />
             </div>
-        );
-    }
+        </div>
+    );
 
     if (error || !article) {
         return (
-            <div className="min-h-screen bg-black-base flex flex-col">
+            <div className="min-h-screen bg-black-base">
                 <Header />
-                <div className="flex-1 flex flex-col items-center justify-center text-center p-4">
-                    <h1 className="text-4xl font-bold font-heading text-white mb-4">Artigo não encontrado</h1>
-                    <Link to="/blog" className="text-green-primary hover:underline">Voltar para o Blog</Link>
+                <div className="pt-40 text-center">
+                    <h1 className="text-2xl font-bold font-heading text-white">Artigo não encontrado</h1>
+                    <Link to="/blog" className="mt-4 text-green-primary hover:underline inline-block">Voltar ao blog</Link>
                 </div>
-                <Footer />
             </div>
         );
     }
@@ -166,15 +175,27 @@ export default function BlogPost() {
         return acc;
     }, 0) || 0) / 225) || 1;
 
+    const articleSchema = generateArticleSchema(article);
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', item: '/' },
+        { name: 'Blog', item: '/blog' },
+        { name: article.title, item: `/blog/${article.slug}` }
+    ]);
+
+    const combinedSchema = {
+        "@context": "https://schema.org",
+        "@graph": [articleSchema, breadcrumbSchema]
+    };
+
     return (
         <>
-            <Helmet>
-                <title>{article.title} | Growmate Blog</title>
-                <meta name="description" content={article.excerpt || "Artigo sobre IA e Automação"} />
-                <meta property="og:title" content={article.title} />
-                <meta property="og:description" content={article.excerpt} />
-                {article.cover && <meta property="og:image" content={getStrapiMedia(article.cover.url) || ""} />}
-            </Helmet>
+            <SEO
+                title={article.title}
+                description={article.excerpt}
+                image={getStrapiMedia(article.cover?.url)}
+                url={`https://www.growmate.io/blog/${article.slug}`}
+                schema={combinedSchema}
+            />
 
             <div className="min-h-screen bg-black-base">
                 <Header />
@@ -322,7 +343,7 @@ export default function BlogPost() {
                                 </div>
 
                                 <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 pb-20">
-                                    <RelatedArticles currentSlug={slug} />
+                                    <RelatedArticles currentSlug={slug!} categories={article.categories} />
                                 </div>
                             </div>
                         </div>

@@ -7,16 +7,18 @@ interface SEOProps {
   description?: string;
   image?: string;
   url?: string;
+  schema?: any; // New prop for custom page schema
 }
 
-export const SEO: React.FC<SEOProps> = ({ 
-  title, 
-  description, 
+export const SEO: React.FC<SEOProps> = ({
+  title,
+  description,
   image,
-  url 
+  url,
+  schema
 }) => {
-  const metaTags = generateMetaTags(title, description);
-  const structuredData = generateStructuredData();
+  const metaTags = generateMetaTags(title, description, url);
+  const corporationSchema = generateStructuredData();
 
   return (
     <Helmet>
@@ -24,15 +26,25 @@ export const SEO: React.FC<SEOProps> = ({
         if ('title' in tag) {
           return <title key={index}>{tag.title}</title>;
         }
+        if ('rel' in tag) {
+          return <link key={index} {...tag} />;
+        }
         return <meta key={index} {...tag} />;
       })}
-      
+
+      {/* Corporation Schema (Global) */}
       <script type="application/ld+json">
-        {JSON.stringify(structuredData)}
+        {JSON.stringify(corporationSchema)}
       </script>
-      
+
+      {/* Page Specific Schema (Article, Breadcrumbs, etc.) */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
+
       {image && <meta property="og:image" content={image} />}
-      {url && <meta property="og:url" content={url} />}
     </Helmet>
   );
 };

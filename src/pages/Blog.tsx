@@ -13,6 +13,8 @@ import { NewsletterSection } from '@/components/blog/NewsletterSection';
 import { BlogSkeleton } from '@/components/blog/BlogSkeleton';
 import { fetchAPI, getStrapiMedia } from '@/lib/strapi';
 import { formatDate, extractText } from '@/lib/blog-utils';
+import { SEO } from '@/components/SEO';
+import { generateBreadcrumbSchema } from '@/lib/seo';
 
 export default function Blog() {
     const [searchParams] = useSearchParams();
@@ -79,12 +81,27 @@ export default function Blog() {
         loadArticles();
     }, [searchQuery]);
 
+    const breadcrumbSchema = generateBreadcrumbSchema([
+        { name: 'Home', item: '/' },
+        { name: 'Blog', item: '/blog' }
+    ]);
+
+    const title = searchQuery
+        ? `Resultados para "${searchQuery}" | Blog Growmate`
+        : 'Blog | Growmate';
+
+    const description = searchQuery
+        ? `Confira os artigos encontrados para "${searchQuery}" no blog da Growmate.`
+        : 'Explore insights profundos sobre IA Agêntica, LLMs Enterprise e o futuro da automação de processos.';
+
     return (
         <>
-            <Helmet>
-                <title>Blog | Growmate</title>
-                <meta name="description" content="Explore insights profundos sobre IA Agêntica, LLMs Enterprise e o futuro da automação de processos." />
-            </Helmet>
+            <SEO
+                title={title}
+                description={description}
+                url="https://www.growmate.io/blog"
+                schema={breadcrumbSchema}
+            />
 
             <div className="min-h-screen bg-black-base">
                 <Header />

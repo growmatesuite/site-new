@@ -11,6 +11,8 @@ import LangGraph from "@/pages/LangGraph";
 import CrewAI from "@/pages/CrewAI";
 import Agno from "@/pages/Agno";
 import WorkWithUs from "@/pages/WorkWithUs";
+import About from "@/pages/About";
+import Authors from "@/pages/Authors";
 import LangSmith from "@/pages/LangSmith";
 import NPS from "@/pages/metrics/NPS";
 import CSAT from "@/pages/metrics/CSAT";
@@ -59,6 +61,8 @@ export default function App() {
             <Route path="/pmf" element={<PMF />} />
             <Route path="/enps" element={<ENPS />} />
             <Route path="/trabalhe-conosco" element={<WorkWithUs />} />
+            <Route path="/sobre" element={<About />} />
+            <Route path="/autores" element={<Authors />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

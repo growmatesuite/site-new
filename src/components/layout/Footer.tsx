@@ -24,7 +24,6 @@ export const Footer: React.FC = () => {
         { name: 'LangSmith', href: '/langsmith' },
         { name: 'Agno', href: '/agno' },
         { name: 'CrewAI', href: '/crewai' },
-        { name: 'n8n', href: '/n8n' },
       ],
     },
     {
@@ -40,7 +39,8 @@ export const Footer: React.FC = () => {
     {
       title: 'Empresa',
       links: [
-        { name: 'Sobre', href: '#about' },
+        { name: 'Sobre', href: '/sobre' },
+        { name: 'Autores', href: '/autores' },
         { name: 'Carreiras', href: '/trabalhe-conosco' },
       ],
     },
@@ -150,7 +150,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <div className="text-sm text-gray-400 mt-4 sm:mt-0">
-              © 2025 Growmate. Todos os direitos reservados.
+              © 2026 Growmate. Todos os direitos reservados.
             </div>
           </div>
 
