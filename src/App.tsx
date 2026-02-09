@@ -1,34 +1,39 @@
-import React, { useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import { HelmetProvider } from 'react-helmet-async';
-import Home from "@/pages/Home";
-import Blog from "@/pages/Blog";
-import Integracoes from "@/pages/Integracoes";
-import Privacy from "@/pages/Privacy";
-import Terms from "@/pages/Terms";
-import LangChain from "@/pages/LangChain";
-import LangGraph from "@/pages/LangGraph";
-import CrewAI from "@/pages/CrewAI";
-import Agno from "@/pages/Agno";
-import WorkWithUs from "@/pages/WorkWithUs";
+import { ThemeProvider } from "@/context/ThemeContext";
 import About from "@/pages/About";
-import LangSmith from "@/pages/LangSmith";
-import NPS from "@/pages/metrics/NPS";
-import CSAT from "@/pages/metrics/CSAT";
-import CES from "@/pages/metrics/CES";
-import PMF from "@/pages/metrics/PMF";
-import ENPS from "@/pages/metrics/eNPS";
+import Agno from "@/pages/Agno";
+import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
+import CrewAI from "@/pages/CrewAI";
 import GrowChatProduct from "@/pages/GrowChatProduct";
 import GrowMetrics from "@/pages/GrowMetrics";
-import { ThemeProvider } from "@/context/ThemeContext";
+import Home from "@/pages/Home";
+import Integracoes from "@/pages/Integracoes";
+import LangChain from "@/pages/LangChain";
+import LangGraph from "@/pages/LangGraph";
+import LangSmith from "@/pages/LangSmith";
 import NotFound from "@/pages/NotFound";
-import BlogPost from "@/pages/BlogPost";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 import WABA from "@/pages/WABA";
+import WorkWithUs from "@/pages/WorkWithUs";
+import CES from "@/pages/metrics/CES";
+import CSAT from "@/pages/metrics/CSAT";
+import NPS from "@/pages/metrics/NPS";
+import PMF from "@/pages/metrics/PMF";
+import ENPS from "@/pages/metrics/eNPS";
+import { useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  useLocation,
+} from "react-router-dom";
 
 function ScrollToTop() {
   const location = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   }, [location.pathname]);
   return null;
 }
@@ -38,7 +43,10 @@ export default function App() {
     <HelmetProvider>
       <ThemeProvider>
         <Router>
-          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-white text-black px-4 py-2 rounded font-medium">
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-[100] bg-white text-black px-4 py-2 rounded font-medium"
+          >
             Pular para o conteúdo principal
           </a>
           <ScrollToTop />
