@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { NPSCalculator } from '@/components/calculators/NPSCalculator';
+import { NPSCostSimulator } from '@/components/calculators/NPSCostSimulator';
 import {
     TrendingUp,
     Users,
@@ -97,11 +98,7 @@ const faqs = [
 export default function NPS() {
     const { scrollYProgress } = useScroll();
     const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
-    const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
-        setMounted(true);
-    }, []);
 
     return (
         <>
@@ -197,6 +194,35 @@ export default function NPS() {
                             transition={{ duration: 0.8 }}
                         >
                             <NPSCalculator />
+                        </motion.div>
+                    </Container>
+                </section>
+
+                {/* Cost Simulator Section */}
+                <section className="py-20 bg-black-secondary/30 relative border-b border-gray-900">
+                    <Container size="lg">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="text-center mb-12"
+                        >
+                            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+                                Quanto custa <span className="text-blue-400">ouvir seu cliente?</span>
+                            </h2>
+                            <p className="text-gray-400 max-w-2xl mx-auto">
+                                Entenda o retorno sobre o investimento (ROI) e o custo real de cada feedback coletado.
+                            </p>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8 }}
+                        >
+                            <NPSCostSimulator />
                         </motion.div>
                     </Container>
                 </section>

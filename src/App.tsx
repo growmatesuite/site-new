@@ -23,6 +23,7 @@ import GrowMetrics from "@/pages/GrowMetrics";
 import { ThemeProvider } from "@/context/ThemeContext";
 import NotFound from "@/pages/NotFound";
 import BlogPost from "@/pages/BlogPost";
+import WABA from "@/pages/WABA";
 
 function ScrollToTop() {
   const location = useLocation();
@@ -62,6 +63,7 @@ export default function App() {
             <Route path="/trabalhe-conosco" element={<WorkWithUs />} />
             <Route path="/sobre" element={<About />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/waba" element={<WABA />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Router>
