@@ -16,8 +16,9 @@ import { cn } from '../../lib/utils';
 export const NPSCostSimulator: React.FC = () => {
     // State for inputs
     const [monthlySends, setMonthlySends] = useState<string>('1000');
-    const [monthlyFee, setMonthlyFee] = useState<string>('299');
-    const [setupFee, setSetupFee] = useState<string>('500');
+    const [costPerSend, setCostPerSend] = useState<string>('0.59');
+    const [monthlyFee, setMonthlyFee] = useState<string>('999');
+    const [setupFee, setSetupFee] = useState<string>('9990');
     const [responseRate, setResponseRate] = useState<number>(15);
 
     // Calculated values
@@ -27,6 +28,7 @@ export const NPSCostSimulator: React.FC = () => {
 
     const calculateCost = () => {
         const sends = parseInt(monthlySends) || 0;
+        const perSend = parseFloat(costPerSend.replace(',', '.')) || 0;
         const fee = parseFloat(monthlyFee) || 0;
         const setup = parseFloat(setupFee) || 0;
         const rate = responseRate || 0;
@@ -35,9 +37,10 @@ export const NPSCostSimulator: React.FC = () => {
         const responses = Math.floor(sends * (rate / 100));
         setEstimatedResponses(responses);
 
-        // Calculate total monthly cost (amortizing setup over 12 months)
+        // Calculate total monthly cost (amortizing setup over 12 months) + variable cost
         const amortizedSetup = setup / 12;
-        const monthlyTotal = fee + amortizedSetup;
+        const variableCost = sends * perSend;
+        const monthlyTotal = fee + amortizedSetup + variableCost;
         setTotalMonthlyCost(monthlyTotal);
 
         // Calculate cost per response
@@ -50,7 +53,7 @@ export const NPSCostSimulator: React.FC = () => {
 
     useEffect(() => {
         calculateCost();
-    }, [monthlySends, monthlyFee, setupFee, responseRate]);
+    }, [monthlySends, costPerSend, monthlyFee, setupFee, responseRate]);
 
     const formatCurrency = (value: number) => {
         return new Intl.NumberFormat('pt-BR', {
@@ -89,6 +92,23 @@ export const NPSCostSimulator: React.FC = () => {
                                     onChange={(e) => setMonthlySends(e.target.value)}
                                     className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
                                     placeholder="Ex: 1000"
+                                />
+                            </div>
+
+                            {/* Cost Per Send Input */}
+                            <div className="relative">
+                                <label className="flex items-center gap-2 text-sm font-medium mb-2 text-gray-300">
+                                    <DollarSign className="h-4 w-4 text-blue-400" />
+                                    Investimento por envio (R$)
+                                </label>
+                                <input
+                                    type="number"
+                                    min="0"
+                                    step="0.01"
+                                    value={costPerSend}
+                                    onChange={(e) => setCostPerSend(e.target.value)}
+                                    className="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all outline-none"
+                                    placeholder="Ex: 0.59"
                                 />
                             </div>
 

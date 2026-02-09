@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { Container } from '@/components/ui/Container';
@@ -6,9 +6,18 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { Input } from '@/components/ui/Input';
 import { CheckCircle, Shield, Zap, MessageSquare, ArrowRight, ExternalLink } from 'lucide-react'; // Assuming lucide-react is installed as per previous files
 
 export default function WABA() {
+    const [phoneNumber, setPhoneNumber] = useState('');
+
+    const handleConnect = () => {
+        if (!phoneNumber) return;
+        // In a real scenario, we might pass this phone number to the backend or use it in the OAuth flow state
+        window.open('https://www.facebook.com/v18.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URL', '_blank');
+    };
+
     return (
         <>
             <Helmet>
@@ -116,15 +125,25 @@ export default function WABA() {
                                         </div>
 
                                         <h3 className="text-xl font-bold mb-3 text-white">Iniciar Conexão (Embedded)</h3>
-                                        <p className="text-gray-400 mb-8 max-w-sm mx-auto">
-                                            Clique no botão abaixo para abrir o pop-up oficial da Meta e selecionar sua conta WhatsApp.
-                                        </p>
+                                        <div className="mb-6 space-y-2">
+                                            <Input
+                                                id="waba-phone"
+                                                type="tel"
+                                                placeholder="Ex: 55 11 99999-9999"
+                                                label="Número de Telefone (WhatsApp)"
+                                                value={phoneNumber}
+                                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                                className="bg-gray-900 border-gray-700 focus:border-green-500 h-14 text-lg"
+                                            />
+                                            <p className="text-xs text-gray-400 text-left">
+                                                *O número que receberá a verificação oficial.
+                                            </p>
+                                        </div>
 
                                         <Button
                                             size="lg"
-                                            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold h-14 rounded-xl shadow-lg shadow-green-900/20"
+                                            className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white font-bold h-14 rounded-xl shadow-lg shadow-green-900/20 transition-all"
                                             onClick={() => window.open('https://www.facebook.com/v18.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URL', '_blank')}
-                                        // Nota: Lógica de Embedded Signup real requer FB SDK e configuração de App ID
                                         >
                                             <span className="mr-2">Conectar com Facebook</span>
                                             <ExternalLink className="h-5 w-5" />
