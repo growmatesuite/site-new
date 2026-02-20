@@ -12,6 +12,7 @@ export const Footer: React.FC = () => {
       title: 'Soluções',
       links: [
         { name: 'GrowChat', href: '/growchat' },
+        { name: 'GrowCOEX', href: '/growcoex' },
         { name: 'GrowMetrics', href: '/growmetrics' },
         { name: 'Integrações', href: '/integracoes' },
       ],

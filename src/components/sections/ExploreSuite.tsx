@@ -16,6 +16,7 @@ const items: Item[] = [
   // Produtos
   { key: 'GrowChatProduct', name: 'GrowChat', description: 'Transforme o relacionamento com clientes e capture leads melhores.', to: '/growchat', glowColor: 'green' },
   { key: 'GrowMetrics', name: 'GrowMetrics', description: 'Mensuração NPS, CSAT, CES e insights com IA em tempo real.', to: '/growmetrics', glowColor: 'green' },
+  { key: 'GrowCOEX', name: 'GrowCOEX', description: 'API Oficial + WhatsApp App. O melhor dos dois mundos.', to: '/growcoex', glowColor: 'green' },
   // Páginas internas
   { key: 'Integracoes', name: 'Integrações', description: 'Conecte-se às principais ferramentas e plataformas do mercado.', to: '/integracoes', glowColor: 'green' },
   { key: 'LangChain', name: 'LangChain', description: 'Framework para construir agentes e cadeias inteligentes.', to: '/langchain', glowColor: 'green' },

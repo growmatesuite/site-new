@@ -16,6 +16,8 @@ import Privacy from "@/pages/Privacy";
 import Terms from "@/pages/Terms";
 import WABA from "@/pages/WABA";
 import WorkWithUs from "@/pages/WorkWithUs";
+import GrowCOEX from "@/pages/GrowCOEX";
+import GrowConnect from "@/pages/GrowConnect";
 import CES from "@/pages/metrics/CES";
 import CSAT from "@/pages/metrics/CSAT";
 import NPS from "@/pages/metrics/NPS";
@@ -57,6 +59,8 @@ export default function App() {
             <Route path="/growchat" element={<GrowChatProduct />} />
             <Route path="/growmetrics" element={<GrowMetrics />} />
             <Route path="/agno" element={<Agno />} />
+            <Route path="/growcoex" element={<GrowCOEX />} />
+            <Route path="/growconnect" element={<GrowConnect />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
             <Route path="/langchain" element={<LangChain />} />
