@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  strapi:
+    container_name: growmate-backend
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: postgres
+      DATABASE_HOST: growmate-postgres
+      DATABASE_PORT: 5432
+      NODE_ENV: production
+    ports:
+      - "1337:1337"
+    depends_on:
+      - growmate-postgres
+
+  growmate-postgres:
+    container_name: growmate-postgres
+    image: postgres:15-alpine
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    volumes:
+      - growmate-db-data:/var/lib/postgresql/data
+
+volumes:
+  growmate-db-data:
