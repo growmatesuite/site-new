@@ -17,8 +17,6 @@ export async function fetchAPI(
             ...options,
             headers: {
                 "Content-Type": "application/json",
-                "ngrok-skip-browser-warning": "true",
-                "User-Agent": "StrapiViteClient",
                 // @ts-ignore
                 ...options?.headers,
             },
